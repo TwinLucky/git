@@ -20,25 +20,39 @@ void primitives() {
   double height = 183;
   String name = 'Борис';
   bool isStudent = true;
+
+  print('=== Завдання 1: Примітивні типи');
+  print('age: $age');
+  print('height: $height');
+  print('name: $name');
+  print('isStudent: $isStudent');
 }
 
 /// Завдання 2: Колекції
 /// 1. List — 3 твої улюблені кольори
 /// 2. Set — 3 унікальні оцінки, спробуй створити перевір print-ми, що вони не виводяться
 /// 3. Map — 3 предмети та їх оцінки
-void collections() {}
+void collections() {
+  print('=== Завдання 2: Колекції');
+}
 
 /// Завдання 3: var, final, const
 /// 1. Створи змінну через var — наприклад, місто проживання та зміни її декілька разів (print після кожної зміни)
 /// 2. Створи змінну через final — наприклад, країна
 /// 3. Створи змінну через const — наприклад, кількість днів у тижні
-void varFinalConst() {}
+void varFinalConst() {
+  print('=== Завдання 3: var, final, const');
+}
 
 /// Завдання 4: Record
 /// Створи іменований та не іменований (позиційний) record з твоїм ім'ям та віком і виведи обидва поля.
-void record() {}
+void record() {
+  print('=== Завдання 4: Record');
+}
 
 /// Завдання 5: Nullable (опціонально)
 /// Створи змінну String? nickname — може бути null або ім'я.
 /// Виведи її через ??: якщо null — виведи "Немає", інакше — значення.
-void nullable() {}
+void nullable() {
+  print('=== Завдання 5: Nullable (опціонально)');
+}
