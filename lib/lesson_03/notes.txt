@@ -1,4 +1,4 @@
 перша нотатка
 второе примичание
-note number 3
-uwaga nr 3
+note number 4 // зміна в гільці task-02-first-feature
+uwaga nr 4 // зміна в гільці task-02-first-feature
