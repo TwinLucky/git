@@ -34,6 +34,20 @@ void primitives() {
 /// 3. Map — 3 предмети та їх оцінки
 void collections() {
   print('=== Завдання 2: Колекції');
+  List<String> favoritsColors = ['red', 'yellow', 'blue'];
+  print('List: $favoritsColors');
+  Set<int> uniqueNumbers = {10, 12, 11};
+  // була помилка коли вказував однакові оцінки: Two elements in a set literal shouldn't be equal. Change or remove the duplicate element.
+  print('Set: $uniqueNumbers');
+  // print('Set elementAt(0): ${uniqueNumbers.elementAt(0)}');
+  // print('Set elementAt(1): ${uniqueNumbers.elementAt(1)}');
+  // print('Set toList()[2]: ${uniqueNumbers.toList()[2]}');
+  Map<String, int> subjectGrades = {
+    'Algebra': 12,
+    'Physics': 11,
+    'Chemistry': 11,
+  };
+  print('Map: $subjectGrades');
 }
 
 /// Завдання 3: var, final, const
@@ -42,6 +56,17 @@ void collections() {
 /// 3. Створи змінну через const — наприклад, кількість днів у тижні
 void varFinalConst() {
   print('=== Завдання 3: var, final, const');
+  var cityOfResidence = 'Dnepr';
+  print('var: $cityOfResidence');
+  // print('var.toUpperCase(): ${cityOfResidence.toUpperCase()}');
+  cityOfResidence = 'Lviv';
+  print('var: $cityOfResidence');
+
+  final country = 'Ukraine';
+  print('final: $country');
+
+  const numberDaysInWeek = 7;
+  print('const: $numberDaysInWeek');
 }
 
 /// Завдання 4: Record
