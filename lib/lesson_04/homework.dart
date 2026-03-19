@@ -84,4 +84,9 @@ void record() {
 /// Виведи її через ??: якщо null — виведи "Немає", інакше — значення.
 void nullable() {
   print('=== Завдання 5: Nullable (опціонально)');
+  String? nickname;
+  // nickname = 'Борис';
+  print('nickname: $nickname');
+  String displayNameNull = nickname ?? 'Немає';
+  print('displayNameNull: $displayNameNull');
 }
