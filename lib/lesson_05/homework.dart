@@ -1,3 +1,6 @@
+// ignore_for_file: omit_local_variable_types, prefer_final_locals, noop_primitive_operations, lines_longer_than_80_chars
+import 'dart:math';
+
 void main() {
   task1();
   task2();
@@ -23,11 +26,11 @@ void task1() {
 
   final area = width * height;
 
+  print('=== task1');
   print('площа прямокутника = $area');
   print('периметр прямокутника = ${(width + height) * 2}');
 
-  // ignore: prefer_final_locals, omit_local_variable_types
-  int count = area ~/ 1;
+  final count = area ~/ 1;
   print('повних квадратів 1х1 вміщається у площу = $count');
 }
 
@@ -39,7 +42,30 @@ void task1() {
 /// Чи менше число за 100.
 /// Чи ділиться число на 5 без залишку.
 /// Виведіть всі результати.
-void task2() {}
+void task2() {
+  final number = Random().nextInt(101);
+
+  print('=== task2');
+  // Використовується Switch Expression з Pattern Matching
+  final result = switch (number) {
+    > 50 && < 100 when number % 5 == 0 =>
+      'Число $number більше 50, менше 100 та ділиться на 5 без залишку!',
+
+    > 50 && < 100 => 'Число $number між 50 або 100, але не ділиться на 5',
+
+    < 50 when number % 5 == 0 => 'Число менше 50 та ділитися на 5',
+
+    _ => 'Число $number менше 50 та не ділитися на 5',
+  };
+
+  // не працює без Pattern Matching
+  // final message = switch (number) {
+  // > 50 && < 100 && == (number ~/ 5 * 5) => 'Більше 50, менше 100 і ділиться на 5',
+  // > 50 && < 100 => 'Між 50 і 100, але на 5 не ділиться',
+  // _ => 'Не потрапляє в діапазон чи інші умови'
+  //};
+  print(result);
+}
 
 /// Завдання 3: Логічні оператори
 /// Створіть змінні hasMoney і isStoreOpen (типу bool).
