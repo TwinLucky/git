@@ -162,7 +162,28 @@ void task5() {
 /// Додатково: якщо оцінка менше 20 — вивести “Повторити курс”.
 /// Поексперементуйте, змінюючи  значення examScore
 
-void task6() {}
+void task6() {
+  final examScore = Random().nextInt(101);
+
+  print('=== task6');
+  print('Оцінка: $examScore');
+
+  if (examScore > 90) {
+    print('Відмінно');
+  } else if (examScore >= 75) {
+    // Сработает для 75-90
+    print('Добре');
+  } else if (examScore >= 60) {
+    // Сработает для 60-74
+    print('Задовільно');
+  } else if (examScore > 20) {
+    // Сработает для 20-59
+    print('Не здано');
+  } else {
+    // Все, что меньше 20
+    print('Повторити курс');
+  }
+}
 
 /// Завдання 7: Конструкція switch statement
 /// Створіть змінну dayNumber від 1 до 7.
