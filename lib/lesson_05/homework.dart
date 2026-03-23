@@ -74,7 +74,22 @@ void task2() {
 /// Чи можна зробити покупку (якщо є гроші і магазин відкритий).
 /// Чи потрібно почекати (якщо магазин закритий або немає грошей).
 /// Використайте оператори &&, ||, !.
-void task3() {}
+void task3() {
+  final random = Random();
+
+  // Генерация случайных состояний
+  bool hasMoney = random.nextBool();
+  bool isStoreOpen = random.nextBool();
+
+  print('=== task3');
+  print('hasMoney: $hasMoney');
+  print('isStoreOpen: $isStoreOpen');
+  if (hasMoney && isStoreOpen) {
+    print('Результат if: Покупка дозволена');
+  } else if (!isStoreOpen || !hasMoney) {
+    print('Результат if: Треба почекати');
+  }
+}
 
 /// Завдання 4: Тернарний оператор
 /// Створіть змінну temperature.
