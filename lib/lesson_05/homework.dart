@@ -129,7 +129,26 @@ void task4() {
 /// Поділіть бали на кількість запитань.
 /// Виведіть остаточний результат.
 
-void task5() {}
+void task5() {
+  double score = 0;
+  final correctAnswers = 17;
+  final mistakes = 3;
+  final totalQuestions = 20;
+
+  print('=== task5');
+
+  score += correctAnswers * 10;
+  print('Додаємо 10 балів за кожну правильну відповідь: $score');
+
+  score -= mistakes * 5;
+  print('Віднімаємо 5 балів за кожну помилку: $score');
+
+  score *= 2;
+  print('Збільшуємо загальну кількість балів у 2 рази: $score');
+
+  score /= totalQuestions;
+  print('Ділимо бали на кількість запитань: $score');
+}
 
 /// Завдання 6: Умовні конструкції if/else
 /// Створіть змінну examScore з значенням 56
