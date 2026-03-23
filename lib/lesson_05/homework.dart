@@ -100,7 +100,18 @@ void task3() {
 /// Потім створіть ще один тернарний оператор:
 /// Якщо менше 10 — вивести “Дуже холодно”.
 
-void task4() {}
+void task4() {
+  final random = Random();
+  int temperature = -20 + random.nextInt(61);
+
+  print('=== task4');
+  print('temperature: $temperature');
+  final status = temperature > 25 ? 'Тепло' : 'Прохолодно';
+  print(status);
+
+  final alert = temperature < 10 ? 'Дуже холодно' : 'Дивись відповідь вище :)';
+  print(alert);
+}
 
 /// Завдання 5: Оператори присвоєння
 /// Використовувати тільки оператори присвоєння (+=, -=, *=, /=)
