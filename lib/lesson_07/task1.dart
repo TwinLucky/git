@@ -35,9 +35,9 @@ void main() {
     '=== Створіть порожній список temp. За допомогою циклу for-in переберіть numbers. Додайте до temp лише ті елементи, що діляться на 2 без залишку',
   );
   var temp = <int>[];
-  for (var i = 0; i < numbers.length; i++) {
-    if (numbers[i] % 2 == 0) {
-      temp.add(numbers[i]);
+  for (final element in numbers) {
+    if (element % 2 == 0) {
+      temp.add(element);
     }
   }
   print(temp);
