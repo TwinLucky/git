@@ -1,8 +1,12 @@
+import 'dart:async';
+
 void main() {
   // print('=== Task 1: Асинхронне отримання імені');
   // task1();
-  print('=== Task 2: Асинхронне отримання віку');
-  task2();
+  // print('=== Task 2: Асинхронне отримання віку');
+  // task2();
+  print('=== Task 3: Послідовне виконання Future');
+  task3();
 }
 
 // Завдання:
@@ -24,10 +28,27 @@ void task2() async {
   print('Кінець завдання 2');
 }
 
+void task3() async {
+  // 1. Створюємо та запускаємо секундомір
+  final stopwatch = Stopwatch()..start();
+
+  print('Початок завантаження...');
+
+  // 2. Послідовне виконання методів
+  final name = await fetchName();
+  final ageRaw = await fetchAge();
+
+  // Зупиняємо секундомір
+  stopwatch.stop();
+
+  print('Мене звати $name, мені ${getAgeString(ageRaw)}');
+  print('Загальний час виконання: ${stopwatch.elapsedMilliseconds} мс');
+}
+
 // асинхронні функції для отримання даних (імітація запиту до сервера)
 Future<String> fetchName() async {
   await Future<void>.delayed(const Duration(seconds: 2));
-  return 'Boris';
+  return 'Борис';
 }
 
 Future<int> fetchAge() async {
