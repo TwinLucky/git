@@ -15,8 +15,10 @@ void main() {
   // task4();
   // print('=== Task 5: Зворотний відлік з затримкою');
   // task5();
-  print('=== Task 6: Стрім з чисел (fromIterable)');
-  task6();
+  // print('=== Task 6: Стрім з чисел (fromIterable)');
+  // task6();
+  print('=== Task 7: Зворотний відлік зі стріму (periodic)');
+  task7();
 }
 
 // Завдання:
@@ -102,6 +104,25 @@ void task6() async {
     //   stdout.write(number);
     //   await Future<void>.delayed(const Duration(milliseconds: 1000));
   });
+}
+
+void task7() async {
+  final stream = Stream<int>.periodic(
+    const Duration(seconds: 1),
+    (count) =>
+        count +
+        1, // Генеруємо числа від 1 і далі (count починається з 0, тому додаємо 1)
+  );
+
+  final limitedStream = stream.take(10);
+
+  print('Відлік почато:');
+
+  await for (final number in limitedStream) {
+    stdout.write('$number... ');
+  }
+
+  print('\nВідлік завершено!');
 }
 
 // асинхронні функції для отримання даних (імітація запиту до сервера)
