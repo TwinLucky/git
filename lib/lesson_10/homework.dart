@@ -1,6 +1,8 @@
 // ignore_for_file: omit_local_variable_types, lines_longer_than_80_chars
 
 import 'dart:async';
+import 'dart:io';
+import 'dart:math';
 
 void main() {
   // print('=== Task 1: Асинхронне отримання імені');
@@ -11,8 +13,10 @@ void main() {
   // task3();
   // print('=== Task 4: Паралельне виконання Future (Future.wait)');
   // task4();
-  print('=== Task 5: Зворотний відлік з затримкою');
-  task5();
+  // print('=== Task 5: Зворотний відлік з затримкою');
+  // task5();
+  print('=== Task 6: Стрім з чисел (fromIterable)');
+  task6();
 }
 
 // Завдання:
@@ -76,6 +80,28 @@ void task5() async {
   final String result = await delayedCountdown(3);
 
   print(result);
+}
+
+void task6() async {
+  final numbers = List.generate(5, (index) => Random().nextInt(5) + 1);
+  print('Згенерований список чисел: $numbers');
+
+  print('--- Вивід через await for ---');
+  final streamForAwait = Stream<int>.fromIterable(numbers);
+  await for (final number in streamForAwait) {
+    stdout.write(number);
+    await Future<void>.delayed(const Duration(milliseconds: 500));
+    // print('Число: $number');
+  }
+
+  print('\n--- Вивід через listen ---');
+  final streamForListen = Stream<int>.fromIterable(numbers);
+  streamForListen.listen((number) {
+    print('Слухач отримав: $number');
+    // streamForListen.listen((number) async {
+    //   stdout.write(number);
+    //   await Future<void>.delayed(const Duration(milliseconds: 1000));
+  });
 }
 
 // асинхронні функції для отримання даних (імітація запиту до сервера)
