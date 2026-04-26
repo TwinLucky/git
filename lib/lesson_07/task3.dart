@@ -1,11 +1,10 @@
-// ignore_for_file: lines_longer_than_80_chars, unused_import
 import 'package:mocky/mocky.dart';
 
 void main() {
   Mocky.setLocale(Locale.uk);
 
   print(
-    '=== Створіть список randomNouns з 100 різними словами  (як це зробити, подивіться в документації  до пакету):',
+    '''=== Створіть список randomNouns з 100 різними словами  (як це зробити, подивіться в документації  до пакету):''',
   );
   final randomNouns = Mocky.names(100);
   print(randomNouns);
@@ -15,7 +14,7 @@ void main() {
   print(nounsMap);
 
   print(
-    '=== Створіть нову змінну Map<String, int> nounsMapFiltered. Додайте у nounsMapFiltered лише ті пари зі nounsMap, де довжина слова — парне число.',
+    '''=== Створіть нову змінну Map<String, int> nounsMapFiltered. Додайте у nounsMapFiltered лише ті пари зі nounsMap, де довжина слова — парне число.''',
   );
   final nounsMapFiltered = {
     for (final entry in nounsMap.entries)

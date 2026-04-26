@@ -1,5 +1,3 @@
-// ignore_for_file: omit_local_variable_types, lines_longer_than_80_chars
-
 import 'dart:async';
 import 'dart:io';
 import 'dart:math';
@@ -81,7 +79,7 @@ void task4() async {
 void task5() async {
   print('Приготуватись!...');
 
-  final String result = await delayedCountdown(3);
+  final result = await delayedCountdown(3);
 
   print(result);
 }
@@ -111,9 +109,7 @@ void task6() async {
 void task7() async {
   final stream = Stream<int>.periodic(
     const Duration(seconds: 1),
-    (count) =>
-        count +
-        1, // Генеруємо числа від 1 і далі (count починається з 0, тому додаємо 1)
+    (count) => count + 1, // Генеруємо числа від 1 і далі
   ).take(10);
 
   print('Відлік почато:');
@@ -155,7 +151,7 @@ Future<int> fetchAge() async {
 }
 
 Future<String> delayedCountdown(int seconds) async {
-  for (int i = seconds; i > 0; i--) {
+  for (var i = seconds; i > 0; i--) {
     print('$i...');
     await Future<void>.delayed(const Duration(seconds: 1));
   }
