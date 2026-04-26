@@ -1,3 +1,5 @@
+// ignore_for_file: omit_local_variable_types, lines_longer_than_80_chars
+
 import 'dart:async';
 
 void main() {
@@ -5,8 +7,10 @@ void main() {
   // task1();
   // print('=== Task 2: Асинхронне отримання віку');
   // task2();
-  print('=== Task 3: Послідовне виконання Future');
-  task3();
+  // print('=== Task 3: Послідовне виконання Future');
+  // task3();
+  print('=== Task 4: Паралельне виконання Future (Future.wait)');
+  task4();
 }
 
 // Завдання:
@@ -43,6 +47,25 @@ void task3() async {
 
   print('Мене звати $name, мені ${getAgeString(ageRaw)}');
   print('Загальний час виконання: ${stopwatch.elapsedMilliseconds} мс');
+}
+
+void task4() async {
+  final stopwatch = Stopwatch()..start();
+  print('Початок паралельного завантаження...');
+
+  // Future.wait повертає список результатів у тому ж порядку,
+  // у якому були передані Future-об'єкти.
+  final results = await Future.wait([fetchName(), fetchAge()]);
+
+  stopwatch.stop();
+
+  final name = results[0] as String;
+  final ageRaw = results[1] as int;
+
+  print('Мене звати $name, мені ${getAgeString(ageRaw)}');
+  print(
+    'Загальний час виконання (паралельно): ${stopwatch.elapsedMilliseconds} мс',
+  );
 }
 
 // асинхронні функції для отримання даних (імітація запиту до сервера)
