@@ -17,8 +17,10 @@ void main() {
   // task5();
   // print('=== Task 6: Стрім з чисел (fromIterable)');
   // task6();
-  print('=== Task 7: Зворотний відлік зі стріму (periodic)');
-  task7();
+  // print('=== Task 7: Зворотний відлік зі стріму (periodic)');
+  // task7();
+  print('=== Task 8: Робота з StreamController');
+  task8();
 }
 
 // Завдання:
@@ -112,17 +114,33 @@ void task7() async {
     (count) =>
         count +
         1, // Генеруємо числа від 1 і далі (count починається з 0, тому додаємо 1)
-  );
-
-  final limitedStream = stream.take(10);
+  ).take(10);
 
   print('Відлік почато:');
 
-  await for (final number in limitedStream) {
+  await for (final number in stream) {
     stdout.write('$number... ');
   }
 
   print('\nВідлік завершено!');
+}
+
+void task8() async {
+  final controller = StreamController<String>();
+
+  controller.stream.listen(
+    (value) => print('Отримано: $value'),
+    onDone: () => print('Стрім завершено'),
+  );
+
+  controller.add('Hello');
+  await Future<void>.delayed(const Duration(seconds: 1));
+  controller.add('World');
+  await Future<void>.delayed(const Duration(seconds: 1));
+  controller.add('Dart');
+  await Future<void>.delayed(const Duration(seconds: 1));
+
+  await controller.close();
 }
 
 // асинхронні функції для отримання даних (імітація запиту до сервера)
