@@ -9,8 +9,10 @@ void main() {
   // task2();
   // print('=== Task 3: Послідовне виконання Future');
   // task3();
-  print('=== Task 4: Паралельне виконання Future (Future.wait)');
-  task4();
+  // print('=== Task 4: Паралельне виконання Future (Future.wait)');
+  // task4();
+  print('=== Task 5: Зворотний відлік з затримкою');
+  task5();
 }
 
 // Завдання:
@@ -68,6 +70,14 @@ void task4() async {
   );
 }
 
+void task5() async {
+  print('Приготуватись!...');
+
+  final String result = await delayedCountdown(3);
+
+  print(result);
+}
+
 // асинхронні функції для отримання даних (імітація запиту до сервера)
 Future<String> fetchName() async {
   await Future<void>.delayed(const Duration(seconds: 2));
@@ -77,6 +87,14 @@ Future<String> fetchName() async {
 Future<int> fetchAge() async {
   await Future<void>.delayed(const Duration(milliseconds: 1500));
   return 44;
+}
+
+Future<String> delayedCountdown(int seconds) async {
+  for (int i = seconds; i > 0; i--) {
+    print('$i...');
+    await Future<void>.delayed(const Duration(seconds: 1));
+  }
+  return 'Старт!';
 }
 
 // Функція для правильного відображення віку з урахуванням української граматики
